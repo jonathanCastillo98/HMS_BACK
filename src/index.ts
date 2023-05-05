@@ -5,7 +5,10 @@ import './models/associations';
 import * as admin from "firebase-admin";
 import { initDb } from './database/initDB';
 import { updateTables } from './middlewares/updateTables';
-admin.initializeApp();
+import { applicationDefault } from 'firebase-admin/app';
+admin.initializeApp({
+    credential:applicationDefault()
+});
 
 const PORT = process.env.PORT || 3000;
 
